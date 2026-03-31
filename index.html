@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matt Sacco — PR & Communications</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --paper: #f5f0e8;
+    --cream: #ede8dc;
+    --accent: #c8432a;
+    --muted: #7a7060;
+    --rule: #d6cebc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 2px solid var(--ink);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 100;
+    height: 60px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  nav a {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 8vw 5vw 6vw;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: rise 0.8s ease forwards 0.1s;
+  }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-right {
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #3a3530;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+  }
+
+  .btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn-accent:hover {
+    background: #a3351f;
+    border-color: #a3351f;
+    color: #fff;
+  }
+
+  /* ── MARQUEE ── */
+  .ticker {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.65rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .ticker-dot {
+    display: inline-block;
+    margin: 0 1.5rem;
+    color: var(--accent);
+  }
+
+  /* ── SECTION SHARED ── */
+  section {
+    padding: 6vw 5vw;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── FEATURED CLIPS ── */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 4rem;
+  }
+
+  .featured-card {
+    background: var(--cream);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s;
+    display: block;
+  }
+
+  .featured-card:hover { background: var(--ink); color: var(--paper); }
+  .featured-card:hover .clip-outlet { color: var(--accent); }
+  .featured-card:hover .clip-arrow { opacity: 1; }
+
+  .clip-outlet {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .clip-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
+
+  .clip-arrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+
+  /* ── CLIPS BY CATEGORY ── */
+  .clips-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .clips-col h3 {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .clip-item {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s;
+  }
+
+  .clip-item:hover { color: var(--accent); }
+
+  .clip-item-outlet {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  .clip-item-title {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { max-width: 800px; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    animation: rise 0.6s ease forwards;
+  }
+
+  .exp-item:nth-child(1) { animation-delay: 0.1s; }
+  .exp-item:nth-child(2) { animation-delay: 0.2s; }
+  .exp-item:nth-child(3) { animation-delay: 0.3s; }
+  .exp-item:nth-child(4) { animation-delay: 0.4s; }
+
+  .exp-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding-top: 0.2rem;
+  }
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-company {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .exp-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #4a4540;
+  }
+
+  /* ── CLIENT COVERAGE ── */
+  .coverage-section {
+    padding: 6vw 5vw;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3.5rem;
+  }
+
+  .coverage-card {
+    background: var(--cream);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .coverage-card:hover { background: #e5dfd2; }
+
+  .coverage-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .coverage-client {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .coverage-outlet {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .coverage-outlet:hover { opacity: 0.7; }
+
+  .coverage-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .coverage-attribution {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 4vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── CASE STUDY ── */
+  .case-study {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6vw 5vw;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case-study .section-label { color: var(--accent); }
+  .case-study .section-rule { background: #333; }
+  .case-study h2 { color: var(--paper); }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .case-client {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--paper);
+  }
+
+  .case-body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #b0a898;
+    margin-bottom: 2rem;
+  }
+
+  .case-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .case-result-item {
+    background: #1a1a1a;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .case-result-item:hover { background: #252525; }
+
+  .result-outlet {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 0.15rem;
+    min-width: 110px;
+  }
+
+  .result-desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: #c8c0b4;
+  }
+
+  .result-arrow {
+    margin-left: auto;
+    color: #555;
+    font-size: 0.8rem;
+    padding-top: 0.1rem;
+  }
+
+  .case-result-item:hover .result-arrow { color: var(--accent); }
+
+  .case-pull {
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .case-pull-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: #d8d0c4;
+  }
+
+  .case-pull-attr {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.75rem;
+  }
+
+  /* ── BEATS ── */
+  .beats-section {
+    padding: 5vw 5vw;
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
+  }
+
+  .beats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 3.5rem;
+  }
+
+  .beat-card {
+    background: var(--paper);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .beat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: height 0.3s ease;
+  }
+
+  .beat-card:hover::before { height: 100%; }
+
+  .beat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+
+  .beat-card:hover .beat-number { color: var(--accent); }
+
+  .beat-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .beat-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .beat-outlets {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .beat-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .coverage-grid { grid-template-columns: 1fr; }
+    .beats-grid { grid-template-columns: 1fr 1fr; }
+    .case-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .clips-columns { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">Matt Sacco</a>
+  <nav>
+    <a href="#beats">Specialties</a>
+    <a href="#work">Work</a>
+    <a href="#coverage">Voices</a>
+    <a href="#clips">Clips</a>
+    <a href="#experience">Experience</a>
+    <a href="mailto:msacco32@gmail.com">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-label">PR & Communications</p>
+    <h1>Matt<br><em>Sacco</em></h1>
+  </div>
+  <div class="hero-right">
+    <p class="hero-bio">
+      Public relations and communications professional with 3+ years of experience securing media coverage across Bloomberg, the Financial Times, CNBC, Forbes, and more. I specialize in brand strategy, media relations, and partnerships for Fortune 500 companies and high-growth startups across tech, fintech, venture capital, entertainment, and media.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:msacco32@gmail.com" class="btn btn-accent">Email Me</a>
+      <a href="https://www.linkedin.com/in/matt-sacco-8467b5132/" target="_blank" class="btn">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-inner">
+    Bloomberg <span class="ticker-dot">◆</span>
+    Financial Times <span class="ticker-dot">◆</span>
+    CNBC <span class="ticker-dot">◆</span>
+    Forbes <span class="ticker-dot">◆</span>
+    Bitcoin Magazine <span class="ticker-dot">◆</span>
+    CoinDesk <span class="ticker-dot">◆</span>
+    Crunchbase News <span class="ticker-dot">◆</span>
+    Kitco News <span class="ticker-dot">◆</span>
+    SmartBrief <span class="ticker-dot">◆</span>
+    T+D World <span class="ticker-dot">◆</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Bloomberg <span class="ticker-dot">◆</span>
+    Financial Times <span class="ticker-dot">◆</span>
+    CNBC <span class="ticker-dot">◆</span>
+    Forbes <span class="ticker-dot">◆</span>
+    Bitcoin Magazine <span class="ticker-dot">◆</span>
+    CoinDesk <span class="ticker-dot">◆</span>
+    Crunchbase News <span class="ticker-dot">◆</span>
+    Kitco News <span class="ticker-dot">◆</span>
+    SmartBrief <span class="ticker-dot">◆</span>
+    T+D World <span class="ticker-dot">◆</span>
+  </span>
+</div>
+
+<!-- BEATS & SPECIALTIES -->
+<section class="beats-section" id="beats">
+  <div class="section-header">
+    <span class="section-label">Specialties</span>
+    <div class="section-rule"></div>
+    <h2>Where I Work Best</h2>
+  </div>
+
+  <div class="beats-grid">
+    <div class="beat-card">
+      <div class="beat-number">01</div>
+      <div class="beat-name">Venture Capital & Startups</div>
+      <div class="beat-desc">I've placed founders and fund managers as credible voices in the business press — turning investment theses and market perspectives into coverage that builds long-term authority. I understand how financial journalists think, what they need, and how to position a source at the right moment.</div>
+      <div class="beat-outlets">
+        <span class="beat-tag">Crunchbase</span>
+        <span class="beat-tag">Crowdfund Insider</span>
+        <span class="beat-tag">Bloomberg</span>
+      </div>
+    </div>
+
+    <div class="beat-card">
+      <div class="beat-number">02</div>
+      <div class="beat-name">AI & Tech</div>
+      <div class="beat-desc">I've worked with established tech companies and first-time founders alike. That includes supporting the launch of a consumer social media platform — shaping how the press covered the product, the vision behind it, and the lessons that came after. I also work with early-stage companies building their first media presence from scratch, helping them establish credibility before the mainstream catches on.</div>
+      <div class="beat-outlets">
+        <span class="beat-tag">CNBC</span>
+        <span class="beat-tag">PYMNTS</span>
+        <span class="beat-tag">SmartBrief</span>
+        <span class="beat-tag">Vetted Sports</span>
+      </div>
+    </div>
+
+    <div class="beat-card">
+      <div class="beat-number">03</div>
+      <div class="beat-name">DEI & Social Impact</div>
+      <div class="beat-desc">I've helped amplify the voices of underrepresented founders and executives — including the two female co-founders of a fintech platform built specifically to get grants, credit, and resources into the hands of minority and women-owned small businesses. That means proactive pitching, message development, and finding the right angles to make their stories land in outlets that matter.</div>
+      <div class="beat-outlets">
+        <span class="beat-tag">Bloomberg</span>
+        <span class="beat-tag">Enterprising Women</span>
+        <span class="beat-tag">Disruption Mag</span>
+      </div>
+    </div>
+
+    <div class="beat-card">
+      <div class="beat-number">04</div>
+      <div class="beat-name">Entertainment & Media</div>
+      <div class="beat-desc">The business of media and entertainment moves fast and the press is skeptical. I've placed clients in outlets that cover the industry seriously — from box office economics to the structural shifts reshaping how content gets made, distributed, and consumed.</div>
+      <div class="beat-outlets">
+        <span class="beat-tag">Financial Times</span>
+        <span class="beat-tag">Forbes</span>
+        <span class="beat-tag">The Fix</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CLIPS -->
+<section id="clips">
+  <div class="section-header">
+    <span class="section-label">Featured</span>
+    <div class="section-rule"></div>
+    <h2>Selected Coverage</h2>
+  </div>
+
+  <div class="featured-grid">
+    <a class="featured-card" href="https://www.bloomberg.com/news/articles/2024-02-29/us-company-diversity-program-lawsuits-lead-to-layoffs-legal-costs" target="_blank">
+      <div class="clip-outlet">Bloomberg</div>
+      <div class="clip-headline">Job Cuts, Fleeing Investors: How Anti-DEI Lawsuits Take a Toll on Targets</div>
+      <div class="clip-arrow">Read →</div>
+    </a>
+    <a class="featured-card" href="https://www.ft.com/content/a488ec21-ed15-416b-8f13-c6ef7b5107b1" target="_blank">
+      <div class="clip-outlet">Financial Times</div>
+      <div class="clip-headline">Can Marvel's 'Deadpool & Wolverine' Revive the Box Office?</div>
+      <div class="clip-arrow">Read →</div>
+    </a>
+    <a class="featured-card" href="https://www.cnbc.com/2023/11/17/ex-meta-staffers-sell-trust-and-safety-tech-during-israel-hamas-war.html" target="_blank">
+      <div class="clip-outlet">CNBC</div>
+      <div class="clip-headline">Ex-Meta Staffers See Booming Business Targeting Online Disinformation After Two Wars Break Out</div>
+      <div class="clip-arrow">Read →</div>
+    </a>
+    <a class="featured-card" href="https://www.bloomberg.com/news/videos/2024-04-08/hello-alice-co-founder-on-fighting-off-dei-lawsuit" target="_blank">
+      <div class="clip-outlet">Bloomberg — Broadcast</div>
+      <div class="clip-headline">Hello Alice Co-Founder on Fighting Off DEI Lawsuit</div>
+      <div class="clip-arrow">Watch →</div>
+    </a>
+    <a class="featured-card" href="https://www.forbes.com/sites/bradadgate/2023/12/19/media-companies-have-slashed-over-20000-jobs-in-2023/" target="_blank">
+      <div class="clip-outlet">Forbes</div>
+      <div class="clip-headline">Media Companies Have Slashed Over 20,000 Jobs In 2023</div>
+      <div class="clip-arrow">Read →</div>
+    </a>
+    <a class="featured-card" href="https://www.kitco.com/news/article/2024-01-10/six-figure-bitcoin-sight-etf-approval-looms-analysts" target="_blank">
+      <div class="clip-outlet">Kitco News</div>
+      <div class="clip-headline">'Six-Figure Bitcoin in Sight' as ETF Approval Looms</div>
+      <div class="clip-arrow">Read →</div>
+    </a>
+  </div>
+
+  <!-- ALL CLIPS BY CATEGORY -->
+  <div class="clips-columns">
+    <div class="clips-col">
+      <h3>Crypto & Finance</h3>
+      <a class="clip-item" href="https://bitcoinmagazine.com/business/azteco-is-helping-millions-buy-bitcoin-without-sharing-their-identity" target="_blank">
+        <div class="clip-item-outlet">Bitcoin Magazine</div>
+        <div class="clip-item-title">Azteco Is Helping Millions Buy Bitcoin Without Sharing Their Identity</div>
+      </a>
+      <a class="clip-item" href="https://www.coindesk.com/opinion/2024/03/26/the-bitcoin-halving-could-accelerate-consumer-adoption-of-btc/" target="_blank">
+        <div class="clip-item-outlet">CoinDesk</div>
+        <div class="clip-item-title">The Bitcoin Halving Could Accelerate Consumer Adoption of BTC</div>
+      </a>
+      <a class="clip-item" href="https://www.pymnts.com/artificial-intelligence-2/2024/eus-new-ai-rules-spark-debate-over-innovation-barrier/" target="_blank">
+        <div class="clip-item-outlet">PYMNTS</div>
+        <div class="clip-item-title">EU's New AI Rules Spark Debate Over Innovation 'Barrier'</div>
+      </a>
+      <a class="clip-item" href="https://news.crunchbase.com/ai/robotics-venture-funding-strong-q1-2024/" target="_blank">
+        <div class="clip-item-outlet">Crunchbase News</div>
+        <div class="clip-item-title">AI Funding Stays Strong Despite Few Billion-Dollar Rounds</div>
+      </a>
+      <a class="clip-item" href="https://news.crunchbase.com/public/ipo-market-insiders-optimistic-alab-rddt/" target="_blank">
+        <div class="clip-item-outlet">Crunchbase News</div>
+        <div class="clip-item-title">IPO Market Insiders 'Cautiously Optimistic' That Current Trickle Will Get Stronger</div>
+      </a>
+      <a class="clip-item" href="https://www.crowdfundinsider.com/2024/04/223640-nicholas-brathwaite-from-celesta-capital-comments-on-current-state-of-tech-ecosystem-in-canada/" target="_blank">
+        <div class="clip-item-outlet">Crowdfund Insider</div>
+        <div class="clip-item-title">Nicholas Brathwaite From Celesta Capital Comments on Current State of Tech Ecosystem in Canada</div>
+      </a>
+    </div>
+
+    <div class="clips-col">
+      <h3>Tech & Innovation</h3>
+      <a class="clip-item" href="https://www.vettedsports.com/how-this-founder-is-using-artificial-intelligence-to-redefine-the-customer-experience-throughout-sports/" target="_blank">
+        <div class="clip-item-outlet">Vetted Sports</div>
+        <div class="clip-item-title">How This Founder Is Using AI to Redefine the Customer Experience in Sports</div>
+      </a>
+      <a class="clip-item" href="https://www.smartbrief.com/original/qa-how-ai-is-impacting-the-travel-experience" target="_blank">
+        <div class="clip-item-outlet">SmartBrief</div>
+        <div class="clip-item-title">Q&A: How AI Is Impacting the Travel Experience</div>
+      </a>
+      <a class="clip-item" href="https://www.tdworld.com/smart-utility/data-analytics/article/21282168/the-first-step-towards-modernization-in-the-utility-industry" target="_blank">
+        <div class="clip-item-outlet">T+D World</div>
+        <div class="clip-item-title">The First Step Toward Modernization in the Utility Industry</div>
+      </a>
+    </div>
+
+    <div class="clips-col">
+      <h3>Profiles & Features</h3>
+      <a class="clip-item" href="https://thefix.media/2023/12/14/how-post-news-is-building-a-social-platform-for-quality-journalism-interview-with-ceo-noam-bardin" target="_blank">
+        <div class="clip-item-outlet">The Fix</div>
+        <div class="clip-item-title">How Post News Is Building a Social Platform for Quality Journalism</div>
+      </a>
+      <a class="clip-item" href="https://www.disruptionmagazine.ca/issue-23/women-making-a-difference-elizabeth-gore-carolyn-rodz" target="_blank">
+        <div class="clip-item-outlet">Disruption Magazine</div>
+        <div class="clip-item-title">Women Making a Difference: Elizabeth Gore & Carolyn Rodz</div>
+      </a>
+      <a class="clip-item" href="https://libraryenterprisingwomen.com/spring2024/98/" target="_blank">
+        <div class="clip-item-outlet">Enterprising Women Magazine</div>
+        <div class="clip-item-title">The Funding Gap: Cracking the VC Landscape for Women Entrepreneurs — Spring 2024</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HELLO ALICE CASE STUDY -->
+<section class="case-study" id="work">
+  <div class="section-header">
+    <span class="section-label">Client Work</span>
+    <div class="section-rule"></div>
+    <h2>Case Study</h2>
+  </div>
+
+  <div class="case-grid">
+    <div>
+      <div class="case-client">Hello Alice — Women & Minority Entrepreneurship</div>
+      <div class="case-title">Two Female Founders. One Mission. A Fight Worth Having.</div>
+      <div class="case-body">
+        Elizabeth Gore and Carolyn Rodz built Hello Alice from a shared conviction: that women, minorities, and underserved entrepreneurs deserved the same shot at capital and resources as everyone else. The platform they created serves 1.5 million small business owners — providing grants, credit, loans, and business tools specifically designed to reach the founders that traditional finance has historically left behind.
+      </div>
+      <div class="case-body" style="margin-top:1rem;">
+        The PR work centered on elevating both founders as national voices on equity in entrepreneurship — placing them in Bloomberg, Disruption Magazine, Enterprising Women, and beyond. That visibility came under direct attack when America First Legal, a conservative group founded by former Trump advisor Stephen Miller, sued Hello Alice over a grant program for Black-owned businesses. The strategy: don't hide. Stay public, keep the founders talking, and let the mission speak. A federal judge dismissed the case. Gore went live on Bloomberg Technology the same day.
+      </div>
+      <div class="case-pull">
+        <div class="case-pull-text">"We are doubling down. This win gives us the wind in our sails to go even bigger. We aren't changing our mission."</div>
+        <div class="case-pull-attr">— Elizabeth Gore, Hello Alice Co-Founder & President, Bloomberg Technology</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="case-results">
+        <a class="case-result-item" href="https://www.bloomberg.com/news/videos/2024-04-08/hello-alice-co-founder-on-fighting-off-dei-lawsuit" target="_blank">
+          <div class="result-outlet">Bloomberg</div>
+          <div class="result-desc">Hello Alice Co-Founder on Fighting Off DEI Lawsuit — Broadcast segment</div>
+          <div class="result-arrow">→</div>
+        </a>
+        <a class="case-result-item" href="#" target="_blank">
+          <div class="result-outlet">Yahoo Finance</div>
+          <div class="result-desc">Elizabeth Gore podcast appearance — secured original placement</div>
+          <div class="result-arrow">→</div>
+        </a>
+        <a class="case-result-item" href="https://libraryenterprisingwomen.com/spring2024/98/" target="_blank">
+          <div class="result-outlet">Enterprising Women</div>
+          <div class="result-desc">"The Funding Gap: Cracking the VC Landscape for Women Entrepreneurs" — contributed piece by Carolyn Rodz</div>
+          <div class="result-arrow">→</div>
+        </a>
+        <a class="case-result-item" href="https://www.disruptionmagazine.ca/issue-23/women-making-a-difference-elizabeth-gore-carolyn-rodz" target="_blank">
+          <div class="result-outlet">Disruption Magazine</div>
+          <div class="result-desc">Women Making a Difference: Elizabeth Gore & Carolyn Rodz — profile feature</div>
+          <div class="result-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT COVERAGE HIGHLIGHTS -->
+<section class="coverage-section" id="coverage">
+  <div class="section-header">
+    <span class="section-label">Client Work</span>
+    <div class="section-rule"></div>
+    <h2>Voices From the Coverage</h2>
+  </div>
+  <p style="font-size:0.9rem;color:var(--muted);max-width:560px;line-height:1.7;margin-top:-1.5rem;margin-bottom:0;">Executives and founders I've placed across Bloomberg, CNBC, the Financial Times, and beyond — in their own words.</p>
+
+  <div class="coverage-grid">
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Hello Alice</span>
+        <a class="coverage-outlet" href="https://www.bloomberg.com/news/videos/2024-04-08/hello-alice-co-founder-on-fighting-off-dei-lawsuit" target="_blank">Bloomberg ↗</a>
+      </div>
+      <div class="coverage-quote">"Do not blink. We stood our ground. We were very public about our fight because we knew we were on the right side of the law."</div>
+      <div class="coverage-attribution">Elizabeth Gore, Co-Founder & President — live on Bloomberg Technology after winning dismissal of a lawsuit targeting Hello Alice's grant program for Black-owned small businesses</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Content Partners</span>
+        <a class="coverage-outlet" href="https://www.ft.com/content/a488ec21-ed15-416b-8f13-c6ef7b5107b1" target="_blank">Financial Times ↗</a>
+      </div>
+      <div class="coverage-quote">"It's a great business if the consumer will show up."</div>
+      <div class="coverage-attribution">Steven Kram, CEO — quoted in FT's analysis of the summer box office outlook and Hollywood's structural shifts</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Celesta Capital</span>
+        <a class="coverage-outlet" href="https://news.crunchbase.com/public/ipo-market-insiders-optimistic-alab-rddt/" target="_blank">Crunchbase News ↗</a>
+      </div>
+      <div class="coverage-quote">"There is a real appetite for these types of companies."</div>
+      <div class="coverage-attribution">Michael Marks, Founding Managing Partner — on AI-driven investment and the recovering IPO market</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Post News</span>
+        <a class="coverage-outlet" href="https://thefix.media/2023/12/14/how-post-news-is-building-a-social-platform-for-quality-journalism-interview-with-ceo-noam-bardin" target="_blank">The Fix ↗</a>
+      </div>
+      <div class="coverage-quote">"At the core of Post's mission is to uplift quality, sound journalism."</div>
+      <div class="coverage-attribution">Noam Bardin, CEO & Founder — on building a social platform for independent publishers and quality news</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Satisfi Labs</span>
+        <a class="coverage-outlet" href="https://www.pymnts.com/artificial-intelligence-2/2024/eus-new-ai-rules-spark-debate-over-innovation-barrier/" target="_blank">PYMNTS ↗</a>
+      </div>
+      <div class="coverage-quote">"It could also create a barrier of entry for small companies that want to jump into the AI pool."</div>
+      <div class="coverage-attribution">Donny White, CEO — on the business implications of the EU's AI Act and the pace of AI regulation globally</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Azteco</span>
+        <a class="coverage-outlet" href="https://www.kitco.com/news/article/2024-01-10/six-figure-bitcoin-sight-etf-approval-looms-analysts" target="_blank">Kitco News ↗</a>
+      </div>
+      <div class="coverage-quote">"ETF approval in the U.S. would definitely be positive overall for Bitcoin."</div>
+      <div class="coverage-attribution">David Bailey, CMO — secured as a leading voice ahead of the first U.S. spot Bitcoin ETF approval</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Celesta Capital</span>
+        <a class="coverage-outlet" href="https://www.crowdfundinsider.com/2024/04/223640-nicholas-brathwaite-from-celesta-capital-comments-on-current-state-of-tech-ecosystem-in-canada/" target="_blank">Crowdfund Insider ↗</a>
+      </div>
+      <div class="coverage-quote">"Canada is extremely well-positioned to grow into a global powerhouse tech economy."</div>
+      <div class="coverage-attribution">Nicholas Brathwaite, Founding Managing Partner — on deep tech investment and the Canada-McMaster University partnership</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Thread</span>
+        <a class="coverage-outlet" href="https://www.tdworld.com/smart-utility/data-analytics/article/21282168/the-first-step-towards-modernization-in-the-utility-industry" target="_blank">T+D World ↗</a>
+      </div>
+      <div class="coverage-quote">"There has to be automation in business processes, maturity around digitization."</div>
+      <div class="coverage-attribution">Josh Riedy, CEO & Founder — contributed piece positioning Thread as the authority on utility industry modernization</div>
+    </div>
+
+    <div class="coverage-card">
+      <div class="coverage-meta">
+        <span class="coverage-client">Satisfi Labs</span>
+        <a class="coverage-outlet" href="https://www.smartbrief.com/original/qa-how-ai-is-impacting-the-travel-experience" target="_blank">SmartBrief ↗</a>
+      </div>
+      <div class="coverage-quote">"AI is set to transform roles and responsibilities within the workforce — not replace them."</div>
+      <div class="coverage-attribution">Dan Flores, VP — placed as a thought leader on AI's impact on the travel and hospitality industry</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-label">Background</span>
+    <div class="section-rule"></div>
+    <h2>Experience</h2>
+  </div>
+
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">Aug 2023 – Present</div>
+      <div>
+        <div class="exp-role">Account Coordinator → Assistant Account Executive</div>
+        <div class="exp-company">Relativity Ventures</div>
+        <div class="exp-desc">Developed and executed public relations strategies for clients across tech, financial services, venture capital, legal, and entertainment. Secured placements in Bloomberg, CNBC, Forbes, and more.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Feb 2023 – Present</div>
+      <div>
+        <div class="exp-role">Volunteer PR & Marketing Chair</div>
+        <div class="exp-company">Best Buddies International</div>
+        <div class="exp-desc">Leading communications and marketing efforts for the nonprofit's volunteer chapter.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Apr 2022 – Aug 2022</div>
+      <div>
+        <div class="exp-role">Analyst</div>
+        <div class="exp-company">TrailRunner International</div>
+        <div class="exp-desc">Full-time analyst role based in New York, NY. Contributed to PR strategy and media relations in a hybrid capacity.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">May 2019 – Aug 2019</div>
+      <div>
+        <div class="exp-role">Political News Intern</div>
+        <div class="exp-company">Spectrum News</div>
+        <div class="exp-desc">On-site internship covering political news in Washington, D.C.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Jan 2019 – Apr 2019</div>
+      <div>
+        <div class="exp-role">Editorial Intern</div>
+        <div class="exp-company">Forbes — London</div>
+        <div class="exp-desc">On-site editorial internship based in London, UK.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Matt Sacco</div>
+  <div class="footer-links">
+    <a href="mailto:msacco32@gmail.com">msacco32@gmail.com</a>
+    <a href="https://www.linkedin.com/in/matt-sacco-8467b5132/" target="_blank">LinkedIn</a>
+    <a href="#clips">Clips</a>
+  </div>
+</footer>
+
+</body>
+</html>
